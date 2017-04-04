@@ -1,6 +1,6 @@
 #define aref_voltage 5 	// Reference voltage for power supply.
 
-int tempPin = 0;		// The analog pin is connected to temp sensor.
+int tempPin = 0;	// The analog pin is connected to temp sensor.
 int tempReading;        // The analog reading from the sensor.
 int lightPin1 = 3;      // Put the LED light on pin 5.
 int lightPin2 = 4;      // Put the LED light on pin 6.
