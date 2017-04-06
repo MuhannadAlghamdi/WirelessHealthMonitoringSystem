@@ -1,21 +1,21 @@
 #define aref_voltage 5 	// Reference voltage for power supply.
 
-int tempPin = 0;	// The analog pin is connected to temp sensor.
-int tempReading;        // The analog reading from the sensor.
-int lightPin1 = 3;      // Put the LED light on pin 5.
-int lightPin2 = 4;      // Put the LED light on pin 6.
-int lightPin3 = 5;      // Put the LED light on pin 9.
+int tempPin0 = 0;		// Temp sensor is connected to pin 0.
+int tempReading;        // Reading from the sensor.
+int ledPin1 = 3;		// LED light is connected to pin 3.
+int ledPin2 = 4;      	// LED light is connected to pin 4.
+int ledPin3 = 5;      	// LED light is connected to pin 5.
 
 void setup(void) {
 	Serial.begin(9600);
-	pinMode(lightPin1, OUTPUT);
-	pinMode(lightPin2, OUTPUT);
-	pinMode(lightPin3, OUTPUT);
+	pinMode(ledPin1, OUTPUT);
+	pinMode(ledPin2, OUTPUT);
+	pinMode(ledPin3, OUTPUT);
 }
 
 void loop(void) {
 	// Get a temperaure reading from the temp sensor.
-	tempReading = analogRead(tempPin);
+	tempReading = analogRead(tempPin0);
 	Serial.print("Temp reading = ");
 	Serial.print(tempReading);
 	
