@@ -1,10 +1,10 @@
 int pulseSensorPin0 = 0;    // The analog pin is connected to pulse sensor.
-int signalReading;          // Store pulse sensor value.
+int ledPin3 = 3;            // LED light is connected to pin 3.
 int threshold = 550;        // The best beat signal.
-int ledPin1 = 3;            // LED light is connected to pin 3.
+int signalReading;          // Store pulse sensor value.
 
 void setup() {
-    pinMode(LEDPin13, OUTPUT);
+    pinMode(ledPin3, OUTPUT);
     // Set's up Serial Communication at certain speed.
     Serial.begin(9600); 
 }
@@ -16,12 +16,12 @@ void loop() {
     Serial.println(signalReading);
 
     // If the signal is above "550", then "turn-on" Arduino's on-Board LED.  
-    if (signalReading > Threshold) {
-        digitalWrite(LEDPin13,HIGH);          
+    if (signalReading > threshold) {
+        digitalWrite(ledPin3,HIGH);          
     }
     // The sigal must be below "550", so "turn-off" this LED.
     else {
-        digitalWrite(LEDPin13,LOW);
+        digitalWrite(ledPin3,LOW);
     }
 
     delay(10);
