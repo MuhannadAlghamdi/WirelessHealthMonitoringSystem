@@ -2,15 +2,9 @@
 
 int tempPin0 = 0;		// Temp sensor is connected to pin 0.
 int tempReading;        // Reading from the sensor.
-int ledPin1 = 3;		// LED light is connected to pin 3.
-int ledPin2 = 4;      	// LED light is connected to pin 4.
-int ledPin3 = 5;      	// LED light is connected to pin 5.
 
 void setup(void) {
 	Serial.begin(9600);
-	pinMode(ledPin1, OUTPUT);
-	pinMode(ledPin2, OUTPUT);
-	pinMode(ledPin3, OUTPUT);
 }
 
 void loop(void) {
