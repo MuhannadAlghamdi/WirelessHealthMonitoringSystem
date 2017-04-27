@@ -1,0 +1,2 @@
+# Wireless Health Monitoring Via Wearable Sensors
+This project can used to sensd body temperature and heart rate of a patient for monitoring physiological conditions using wireless sensor network (WSN) to send data to mobile app. The system is composed of Arduino microcontrollers (placed in the patient), LM35 sensor (used for the sense body temperature) and heart beat sensor (used for sensing heart rate), ZigBee, smartphones and softwares such as LabView and Xcode.
