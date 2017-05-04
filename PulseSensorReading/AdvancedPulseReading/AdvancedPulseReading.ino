@@ -10,19 +10,19 @@ volatile boolean QS = false;				// becomes true when Arduoino finds a beat.
 //static int outputType = SERIAL_PLOTTER;
 
 void setup() {
-	Serial.begin(115200);					// we agree to talk fast!
-	interruptSetup();						// Sets up to read Pulse Sensor signal every 2mS.
+  Serial.begin(115200);					// we agree to talk fast!
+  interruptSetup();						// Sets up to read Pulse Sensor signal every 2mS.
 }
 
 void loop() {
-	serialOutput();
-	delay(20);								// take a break
+  serialOutput();
+  delay(20);								// take a break
 }
 
 void serialOutput() {
-	Serial.print(BPM);
-	Serial.print(",");
-	Serial.print(IBI);
-	Serial.print(",");
-	Serial.println(Signal);
+  Serial.print(BPM);
+  Serial.print(",");
+  Serial.print(IBI);
+  Serial.print(",");
+  Serial.println(Signal);
 }
