@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dS5-Kn-wag">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08k-9i-lk9" customClass="KDCircularProgress" customModule="HealthMonitoring" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="8" width="288" height="289"/>
+                                                <rect key="frame" x="16" y="93" width="288" height="289"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_beat" translatesAutoresizingMaskIntoConstraints="NO" id="cOJ-m2-Dvn">
                                                         <rect key="frame" x="103" y="104" width="83" height="82"/>
@@ -85,31 +85,49 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aH-6K-gZA" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="8" y="305" width="304" height="220"/>
+                                                <rect key="frame" x="8" y="390" width="304" height="220"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="220" id="CLg-pc-4ug"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foX-Gg-r4N" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="8" y="533" width="304" height="220"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crO-01-VIf">
+                                                <rect key="frame" x="116" y="8" width="88" height="30"/>
+                                                <state key="normal" title="Start Signals"/>
+                                                <connections>
+                                                    <action selector="startSignalsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGg-kv-Bot"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZn-Ga-VwM">
+                                                <rect key="frame" x="117" y="8" width="86" height="30"/>
+                                                <state key="normal" title="Stop Signals"/>
+                                                <connections>
+                                                    <action selector="stopSignalsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CSl-8v-9dy"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr8-wM-da7">
+                                                <rect key="frame" x="16" y="618" width="72.5" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="crO-01-VIf" firstAttribute="top" secondItem="isL-mK-8oF" secondAttribute="topMargin" id="1C8-KV-DPy"/>
+                                            <constraint firstItem="MZn-Ga-VwM" firstAttribute="centerX" secondItem="crO-01-VIf" secondAttribute="centerX" id="2mg-jM-JeF"/>
                                             <constraint firstItem="08k-9i-lk9" firstAttribute="centerX" secondItem="isL-mK-8oF" secondAttribute="centerX" id="3KI-LJ-VFx"/>
                                             <constraint firstItem="08k-9i-lk9" firstAttribute="leading" secondItem="isL-mK-8oF" secondAttribute="leadingMargin" constant="8" id="4PU-5c-iZJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="foX-Gg-r4N" secondAttribute="bottom" constant="247" id="A4F-UU-KEa"/>
                                             <constraint firstItem="1aH-6K-gZA" firstAttribute="top" secondItem="08k-9i-lk9" secondAttribute="bottom" constant="8" id="EoV-zW-RIW"/>
                                             <constraint firstItem="08k-9i-lk9" firstAttribute="trailing" secondItem="isL-mK-8oF" secondAttribute="trailingMargin" constant="-8" id="FVW-eP-1HS"/>
+                                            <constraint firstItem="MZn-Ga-VwM" firstAttribute="baseline" secondItem="crO-01-VIf" secondAttribute="baseline" id="O77-YW-uW3"/>
                                             <constraint firstItem="1aH-6K-gZA" firstAttribute="leading" secondItem="isL-mK-8oF" secondAttribute="leading" constant="8" id="WNd-5E-ZvL"/>
                                             <constraint firstAttribute="height" constant="1000" id="WR0-1Y-sM0"/>
-                                            <constraint firstItem="foX-Gg-r4N" firstAttribute="top" secondItem="1aH-6K-gZA" secondAttribute="bottom" constant="8" symbolic="YES" id="bmj-9M-Pzp"/>
-                                            <constraint firstItem="foX-Gg-r4N" firstAttribute="trailing" secondItem="1aH-6K-gZA" secondAttribute="trailing" id="ceo-rJ-faO"/>
-                                            <constraint firstItem="foX-Gg-r4N" firstAttribute="leading" secondItem="1aH-6K-gZA" secondAttribute="leading" id="fxH-Fd-J85"/>
+                                            <constraint firstItem="Pr8-wM-da7" firstAttribute="top" secondItem="1aH-6K-gZA" secondAttribute="bottom" constant="8" id="Zho-mA-X5m"/>
+                                            <constraint firstItem="Pr8-wM-da7" firstAttribute="leading" secondItem="isL-mK-8oF" secondAttribute="leading" constant="16" id="cVa-0s-lqG"/>
                                             <constraint firstAttribute="trailing" secondItem="1aH-6K-gZA" secondAttribute="trailing" constant="8" id="gdt-Kd-8T2"/>
-                                            <constraint firstItem="08k-9i-lk9" firstAttribute="centerY" secondItem="isL-mK-8oF" secondAttribute="centerY" constant="-347.5" id="p12-KY-x3L"/>
+                                            <constraint firstItem="crO-01-VIf" firstAttribute="centerX" secondItem="08k-9i-lk9" secondAttribute="centerX" id="hLt-3f-l3l"/>
+                                            <constraint firstItem="08k-9i-lk9" firstAttribute="centerY" secondItem="isL-mK-8oF" secondAttribute="centerY" constant="-262.5" id="p12-KY-x3L"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -134,10 +152,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="BPMView" destination="Pr8-wM-da7" id="z6S-PJ-OpB"/>
                         <outlet property="circularBar" destination="08k-9i-lk9" id="Sc2-KG-u0Z"/>
-                        <outlet property="heartBeat" destination="cOJ-m2-Dvn" id="zBa-hq-uvz"/>
-                        <outlet property="lineChartView" destination="1aH-6K-gZA" id="YJE-v0-Vjr"/>
-                        <outlet property="lineChartView2" destination="foX-Gg-r4N" id="Qy4-Z7-hEY"/>
+                        <outlet property="heartBeatImageView" destination="cOJ-m2-Dvn" id="0wq-Xv-C90"/>
+                        <outlet property="signalChartView" destination="1aH-6K-gZA" id="nnh-N6-NBi"/>
+                        <outlet property="startSignalsView" destination="crO-01-VIf" id="cw9-3b-efq"/>
+                        <outlet property="stopSignalsView" destination="MZn-Ga-VwM" id="CmK-Gm-Hid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -145,23 +165,48 @@
             <point key="canvasLocation" x="116.25" y="123.59154929577466"/>
         </scene>
         <!--Second View Controller-->
-        <scene sceneID="iHw-GJ-I2d">
+        <scene sceneID="tOS-jB-fhp">
             <objects>
-                <viewController storyboardIdentifier="secondViewController" id="ixv-dE-EKG" customClass="SecondViewController" customModule="HealthMonitoring" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kWC-GM-DfP"/>
-                        <viewControllerLayoutGuide type="bottom" id="8jd-ah-ctj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="25O-CM-CEQ">
+                <tableViewController storyboardIdentifier="secondViewController" id="dS5-Kn-wag" customClass="SecondViewController" customModule="HealthMonitoring" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JZH-vv-UpP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xfs-Ne-aea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="tNY-NZ-zjP" detailTextLabel="XKf-FS-GYi" style="IBUITableViewCellStyleValue1" id="LF8-sI-dbW">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LF8-sI-dbW" id="VQh-KF-PXN">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tNY-NZ-zjP">
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XKf-FS-GYi">
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dS5-Kn-wag" id="K4u-y0-CPu"/>
+                            <outlet property="delegate" destination="dS5-Kn-wag" id="2QP-cS-Clr"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCk-lA-kY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815.625" y="123.59154929577466"/>
+            <point key="canvasLocation" x="-833" y="-105"/>
         </scene>
     </scenes>
     <resources>

@@ -15,13 +15,13 @@
 		22BFE5481EB13390008AFEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22BFE5471EB13390008AFEE4 /* Assets.xcassets */; };
 		22BFE54B1EB13390008AFEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BFE5491EB13390008AFEE4 /* LaunchScreen.storyboard */; };
 		22BFE56F1EB1347A008AFEE4 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE56E1EB1347A008AFEE4 /* KDCircularProgress.swift */; };
-		22BFE5711EB154DB008AFEE4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE5701EB154DB008AFEE4 /* SecondViewController.swift */; };
 		22BFE5781EB1553C008AFEE4 /* MIPivotPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE5721EB1553C008AFEE4 /* MIPivotPageController.swift */; };
 		22BFE5791EB1553C008AFEE4 /* MIPivotPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22BFE5731EB1553C008AFEE4 /* MIPivotPageController.xib */; };
 		22BFE57A1EB1553C008AFEE4 /* MIPivotPageControllerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE5741EB1553C008AFEE4 /* MIPivotPageControllerMenuCell.swift */; };
 		22BFE57B1EB1553C008AFEE4 /* MIPivotPageControllerMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22BFE5751EB1553C008AFEE4 /* MIPivotPageControllerMenuCell.xib */; };
 		22BFE57C1EB1553C008AFEE4 /* MIPivotPageControllerPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE5761EB1553C008AFEE4 /* MIPivotPageControllerPageCell.swift */; };
 		22BFE57D1EB1553C008AFEE4 /* MIPivotPageControllerPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22BFE5771EB1553C008AFEE4 /* MIPivotPageControllerPageCell.xib */; };
+		22DE18411ECC560F00E6F662 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE18401ECC560F00E6F662 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,13 +72,13 @@
 		22BFE54A1EB13390008AFEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22BFE54C1EB13390008AFEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22BFE56E1EB1347A008AFEE4 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
-		22BFE5701EB154DB008AFEE4 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		22BFE5721EB1553C008AFEE4 /* MIPivotPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPivotPageController.swift; sourceTree = "<group>"; };
 		22BFE5731EB1553C008AFEE4 /* MIPivotPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIPivotPageController.xib; sourceTree = "<group>"; };
 		22BFE5741EB1553C008AFEE4 /* MIPivotPageControllerMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPivotPageControllerMenuCell.swift; sourceTree = "<group>"; };
 		22BFE5751EB1553C008AFEE4 /* MIPivotPageControllerMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIPivotPageControllerMenuCell.xib; sourceTree = "<group>"; };
 		22BFE5761EB1553C008AFEE4 /* MIPivotPageControllerPageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIPivotPageControllerPageCell.swift; sourceTree = "<group>"; };
 		22BFE5771EB1553C008AFEE4 /* MIPivotPageControllerPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIPivotPageControllerPageCell.xib; sourceTree = "<group>"; };
+		22DE18401ECC560F00E6F662 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 				22BFE57E1EB15543008AFEE4 /* SupporingFills */,
 				22BFE5401EB13390008AFEE4 /* AppDelegate.swift */,
 				22BFE5421EB13390008AFEE4 /* FirstViewController.swift */,
-				22BFE5701EB154DB008AFEE4 /* SecondViewController.swift */,
+				22DE18401ECC560F00E6F662 /* ThirdViewController.swift */,
 				22BFE5441EB13390008AFEE4 /* Main.storyboard */,
 				22BFE5491EB13390008AFEE4 /* LaunchScreen.storyboard */,
 				22BFE54C1EB13390008AFEE4 /* Info.plist */,
@@ -252,7 +252,7 @@
 				22BFE57A1EB1553C008AFEE4 /* MIPivotPageControllerMenuCell.swift in Sources */,
 				22BFE57C1EB1553C008AFEE4 /* MIPivotPageControllerPageCell.swift in Sources */,
 				22BFE5781EB1553C008AFEE4 /* MIPivotPageController.swift in Sources */,
-				22BFE5711EB154DB008AFEE4 /* SecondViewController.swift in Sources */,
+				22DE18411ECC560F00E6F662 /* ThirdViewController.swift in Sources */,
 				22BFE56F1EB1347A008AFEE4 /* KDCircularProgress.swift in Sources */,
 				22BFE5431EB13390008AFEE4 /* FirstViewController.swift in Sources */,
 				22BFE5411EB13390008AFEE4 /* AppDelegate.swift in Sources */,

@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let firstViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "firstViewController") as! FirstViewController
 	let secondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "secondViewController") as! SecondViewController
+	
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
@@ -21,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Change status bar style to light after splash screen finished.
 		UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 		
-		let pivotPageController = MIPivotPageController.get(rootPages: [firstViewController, secondViewController]) {
+		let pivotPageController = MIPivotPageController.get(rootPages: [secondViewController, firstViewController]) {
 			$0.menuView.backgroundColor = UIColor(red:0.97, green:0.07, blue:0.28, alpha:1.00)
 			$0.menuView.layer.shadowColor = UIColor.black.cgColor
 			$0.menuView.layer.shadowOpacity = 0.3
