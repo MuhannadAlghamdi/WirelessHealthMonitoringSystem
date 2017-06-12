@@ -11,9 +11,15 @@ volatile boolean secondBeat = false;					// Used to seed rate array so we startu
 // CHECK OUT THE Timer_Interrupt_Notes TAB FOR MORE ON INTERRUPTS.
 void interruptSetup() {
   // Initializes Timer2 to throw an interrupt every 2mS.
+  //TCCR1A = 0x00;
+  //TCCR1B = 0x0C;
+  //OCR1A = 0x7C;
+  //TIMSK1 = 0x02;
+  //sei();
+
   TCCR2A = 0x02;										// DISABLE PWM ON DIGITAL PINS 3 AND 11, AND GO INTO CTC MODE.
   TCCR2B = 0x06;										// DON'T FORCE COMPARE, 256 PRESCALER.
-  OCR2A = 0X7C;										// SET THE TOP OF THE COUNT TO 124 FOR 500Hz SAMPLE RATE.
+  OCR2A = 0x7C;										// SET THE TOP OF THE COUNT TO 124 FOR 500Hz SAMPLE RATE.
   TIMSK2 = 0x02;										// ENABLE INTERRUPT ON MATCH BETWEEN TIMER2 AND OCR2A.
   sei();												// MAKE SURE GLOBAL INTERRUPTS ARE ENABLED.
 }
@@ -23,11 +29,13 @@ void interruptSetup() {
 ISR (TIMER2_COMPA_vect) {								// triggered when Timer2 counts to 124
   cli();												// disable interrupts while we do this
   Signal = analogRead(pulsePin);						// read the Pulse Sensor
+  Temp = analogRead(tempPin);            // read the Pulse Sensor
   sampleCounter += 2;									// keep track of the time in mS with this variable
   int N = sampleCounter - lastBeatTime;				// monitor the time since the last beat to avoid noise
 
+
   // Find the peak and trough of the pulse wave
-  if (Signal < thresh && N > (IBI / 5) * 3) {				// avoid dichrotic noise by waiting 3/5 of last IBI
+  if (Signal < thresh && N > (IBI / 5) * 3) {			// avoid dichrotic noise by waiting 3/5 of last IBI
     if (Signal < T) {								// T is the trough
       T = Signal;									// keep track of lowest point in pulse wave
     }
@@ -39,7 +47,7 @@ ISR (TIMER2_COMPA_vect) {								// triggered when Timer2 counts to 124
 
   // NOW IT'S TIME TO LOOK FOR THE HEART BEAT
   // Signal surges up in value every time there is a pulse
-  if (N > 250) {									// avoid high frequency noise
+  if (N > 250) {										// avoid high frequency noise
     if ( (Signal > thresh) && (Pulse == false) && (N > (IBI / 5) * 3) ) {
       Pulse = true;								// set the Pulse flag when we think there is a pulse
       IBI = sampleCounter - lastBeatTime;			// measure time between beats in mS
@@ -47,7 +55,7 @@ ISR (TIMER2_COMPA_vect) {								// triggered when Timer2 counts to 124
 
       if (secondBeat) {							// if this is the second beat, if secondBeat == TRUE
         secondBeat = false;						// clear secondBeat flag
-        for (int i = 0; i <= 9; i++) {				// seed the running total to get a realisitic BPM at startup
+        for (int i = 0; i <= 9; i++) {			// seed the running total to get a realisitic BPM at startup
           rate[i] = IBI;
         }
       }
@@ -62,7 +70,7 @@ ISR (TIMER2_COMPA_vect) {								// triggered when Timer2 counts to 124
       // keep a running total of the last 10 IBI values
       word runningTotal = 0;						// clear the runningTotal variable
 
-      for (int i = 0; i <= 8; i++) {					// shift data in the rate array
+      for (int i = 0; i <= 8; i++) {				// shift data in the rate array
         rate[i] = rate[i + 1];					// and drop the oldest IBI value
         runningTotal += rate[i];				// add up the 9 oldest IBI values
       }
@@ -79,7 +87,7 @@ ISR (TIMER2_COMPA_vect) {								// triggered when Timer2 counts to 124
   if (Signal < thresh && Pulse == true) {				// when the values are going down, the beat is over
     Pulse = false;									// reset the Pulse flag so we can do it again
     amp = P - T;									// get amplitude of the pulse wave
-    thresh = amp / 2 + T;								// set thresh at 50% of the amplitude
+    thresh = amp / 2 + T;							// set thresh at 50% of the amplitude
     P = thresh;										// reset these for next time
     T = thresh;
   }
