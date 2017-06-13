@@ -56,7 +56,7 @@ void serialOutput() {
       
     } else if (bluetoothData == '2') {
       // Convert Temp to char array.
-      Temp = (5.0 * analogRead(tempPin) * 100.0) / 1024;
+      Temp = analogRead(tempPin);
       String str = two + part + Temp;
       int str_len = str.length() + 1;
       char TempArray[str_len];
