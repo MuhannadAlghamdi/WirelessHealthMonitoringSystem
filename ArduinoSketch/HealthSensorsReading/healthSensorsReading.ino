@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
-#define TX 7						// RX is digital pin 8 (connect to TX of other device)
-#define RX 8						// TX is digital pin 7 (connect to RX of other device)
+#define TX 8						// RX is digital pin 7 (connect to TX of other device)
+#define RX 7						// TX is digital pin 8 (connect to RX of other device)
 SoftwareSerial bluetoothSerial(TX, RX);
 
 String zero = "0"; String one = "1"; String two = "2"; String part = ",";

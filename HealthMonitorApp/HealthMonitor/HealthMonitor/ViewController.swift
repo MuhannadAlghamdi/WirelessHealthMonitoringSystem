@@ -113,6 +113,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
 				signalArray.remove(at: 0)
 			}
 		}
+		
+		print(stringFromData)
 	}
 	
 	// Animate heartBeatImageView.
