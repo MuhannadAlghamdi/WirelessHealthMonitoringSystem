@@ -75,34 +75,36 @@ First we read the Pulse Sensor then keep track of the time in mS with sampleCoun
 The HM-10 is a low coast Bluetooth module that can easily used with the Arduino using serial communication to send data to iOS application. Once the chip is configured, it relays the commands from the App by Bluetooth to the Arduino and replays the corresponding result to the App to be displayed. The function for processing these commands is shown below.
 
 ```arduino
-  if (bluetoothSerial.available()) {
-    char bluetoothData = bluetoothSerial.read();
+if (bluetoothSerial.available()) {
+	char bluetoothData = bluetoothSerial.read();
 
-    if (bluetoothData == '0') {
-      // Convert Signal to char array.
-      String str = zero + part + Signal;
-      int str_len = str.length() + 1;
-      char SignalArray[str_len];
-      str.toCharArray(SignalArray, str_len);
-      bluetoothSerial.write(SignalArray);
-      
-    } else if (bluetoothData == '1') {
-      // Convert BPM to char array.
-      String str = one + part + BPM;
-      int str_len = str.length() + 1;
-      char BPMArray[str_len];
-      str.toCharArray(BPMArray, str_len);
-      bluetoothSerial.write(BPMArray);
-      
-    } else if (bluetoothData == '2') {
-      // Convert Temp to char array.
-      String str = two + part + Temp;
-      int str_len = str.length() + 1;
-      char TempArray[str_len];
-      str.toCharArray(TempArray, str_len);
-      bluetoothSerial.write(TempArray);
-    }
-  }
+	if (bluetoothData == '0') {
+		// Convert Signal to char array.
+		String sep = "0,";
+		String str = sep + Signal;
+		int strlen = str.length() + 1;
+		char SignalArray[strlen];
+		str.toCharArray(SignalArray, strlen);
+		bluetoothSerial.write(SignalArray);
+	} else if (bluetoothData == '1') {
+		// Convert BPM to char array.
+		String sep = "1,";
+		String str = sep + BPM;
+		int strlen = str.length() + 1;
+		char BPMArray[strlen];
+		str.toCharArray(BPMArray, strlen);
+		bluetoothSerial.write(BPMArray);
+	} else if (bluetoothData == '2') {
+		// Convert Temp to char array.
+		Temp = analogRead(tempPin);
+		String sep = "2,";
+		String str = sep + Temp;
+		int strlen = str.length() + 1;
+		char TempArray[strlen];
+		str.toCharArray(TempArray, strlen);
+		bluetoothSerial.write(TempArray);
+	}
+}
 ```
 
 ### Bluetooth Algorithm (iOS)
@@ -116,6 +118,7 @@ import CoreBluetooth
 Now, to grab any data coming from the HM-10 and print it to the chart and labels, we have to add this function and call it every time we have to read a value from the sensor
 
 ```swift
+// Get data values when they are updated.
 func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
 	let stringFromData = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue)!
 	var array = stringFromData.components(separatedBy: ",")
@@ -142,14 +145,22 @@ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CB
 	case "2":
 		// Get temperature and update view.
 		tempArray.append(Int(array[1])!)
+		
 		var celsius = (average(temp: tempArray)/1024) * 500
 		var fahrenheit = (celsius * 9)/5 + 32
+		
 		tempCView.text = "\(celsius.rounded())°C"
 		tempFView.text = "\(fahrenheit.rounded())°F"
 		break
 	default:
 		break
 	}
+	
+	// Make signalArray maximum size to 90.
+	if signalArray.count == 90 {
+		signalArray.remove(at: 0)
+	}
+}
 ```
 
 ## Calculation of BPM and Temperature
