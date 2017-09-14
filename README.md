@@ -145,7 +145,6 @@ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CB
     case "2":
         // Get temperature and update view.
         tempArray.append(Int(array[1])!)
-        
         var celsius = (average(temp: tempArray)/1024) * 500
         var fahrenheit = (celsius * 9)/5 + 32
         
@@ -154,11 +153,6 @@ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CB
         break
     default:
         break
-    }
-    
-    // Make signalArray maximum size to 90.
-    if signalArray.count == 90 {
-        signalArray.remove(at: 0)
     }
 }
 ```
