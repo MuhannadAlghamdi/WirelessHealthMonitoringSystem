@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreBluetooth
-
 var activeCentralManager: CBCentralManager?
 var peripheralDevice: CBPeripheral?
 

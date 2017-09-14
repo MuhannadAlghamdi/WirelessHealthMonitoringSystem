@@ -11,40 +11,51 @@ import Charts
 import CoreBluetooth
 
 class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
-	var i = 0
-	var BPM = 0
-	var signalTimer: Timer!
-	var signalArray: [Int] = []
-	var dataEntries: [ChartDataEntry] = []
-	
+	@IBOutlet weak var stopReading: UIBarButtonItem!
+	@IBOutlet weak var startReading: UIBarButtonItem!
 	@IBOutlet weak var BPMView: UILabel!
+	@IBOutlet weak var tempCView: UILabel!
+	@IBOutlet weak var tempFView: UILabel!
 	@IBOutlet weak var signalChartView: LineChartView!
-	@IBOutlet weak var xConstraint: NSLayoutConstraint!
-	@IBOutlet weak var heartBeatImageView: UIImageView!
 	@IBOutlet weak var circularBar: KDCircularProgress!
-	@IBOutlet weak var startSignalsView: UIButton!
-	@IBOutlet weak var stopSignalsView: UIButton!
+	@IBOutlet weak var heartBeatImageView: UIImageView!
 	
-	// Start reading from HM-10.
-	@IBAction func startSignalsButton(_ sender: Any) {
-		signalTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(writeValue), userInfo: nil, repeats: true)
-		startSignalsView.isHidden = true
-		stopSignalsView.isHidden = false
+	@IBAction func startReading(_ sender: Any) {
+		signalTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(writeValue), userInfo: nil, repeats: true)
 	}
 	
-	// Stop reading from HM-10.
-	@IBAction func stopSignalsButton(_ sender: Any) {
-		self.view.layer.removeAllAnimations()
-		signalTimer.invalidate()
-		signalTimer = nil
-		startSignalsView.isHidden = false
-		stopSignalsView.isHidden = true
+	var signalTimer: Timer!
+	var i = 0
+	var buffer = 0
+	var BPM = 0
+	var IBI = 0
+	var tempArray:[Int] = []
+	var signalArray: [Int] = []
+	var dataEntries: [ChartDataEntry] = []
+	var characteristics = [String : CBCharacteristic]()
+	
+	// Return average temperature.
+	func average(temp: [Int]) -> Double {
+		var array = temp
+		
+		// Make array maximum size to 10.
+		if array.count == 10 {
+			array.remove(at: 0)
+		}
+		
+		var total = 0
+		for i in array {
+			total += i
+		}
+		
+		let count = array.count
+		let average = total/count
+		return Double(average)
 	}
 	
 	// Called after the view has been loaded.
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		stopSignalsView.isHidden = true
 	}
 	
 	// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -58,14 +69,27 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
 		}
 	}
 	
-	// Write function
+	// Write function.
 	func writeValue() {
-		let select = "1"
-		let data = (select as NSString).data(using: String.Encoding.utf8.rawValue)
-		if let peripheralDevice = peripheralDevice {
-			if let deviceCharacteristics = deviceCharacteristics {
-				peripheralDevice.writeValue(data!, for: deviceCharacteristics, type: CBCharacteristicWriteType.withoutResponse)
-			}
+		switch buffer {
+		case 0:
+			let data = ("\(buffer)" as NSString).data(using: String.Encoding.utf8.rawValue)
+			peripheralDevice?.writeValue(data!, for: deviceCharacteristics, type: CBCharacteristicWriteType.withoutResponse)
+		case 1:
+			let data = ("\(buffer)" as NSString).data(using: String.Encoding.utf8.rawValue)
+			peripheralDevice?.writeValue(data!, for: deviceCharacteristics, type: CBCharacteristicWriteType.withoutResponse)
+		case 2:
+			let data = ("\(buffer)" as NSString).data(using: String.Encoding.utf8.rawValue)
+			peripheralDevice?.writeValue(data!, for: deviceCharacteristics, type: CBCharacteristicWriteType.withoutResponse)
+		default:
+			break
+		}
+		
+		// Increment buffer.
+		if ((buffer + 1) >= 3) {
+			buffer = 0
+		} else {
+			buffer += 1
 		}
 	}
 	
@@ -87,34 +111,44 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
 	func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
 		let stringFromData = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue)!
 		var array = stringFromData.components(separatedBy: ",")
+		print(stringFromData)
 		
-		if (array.count >= 3) {
-			print(stringFromData)
-			
-			// Append signal into signalArray.
-			if (array[0] != "") {
-				signalArray.append(Int(array[0])!)
-				setChart()
+		switch array[0] {
+		case "0":
+			// Get singal and update chart.
+			signalArray.append(Int(array[1])!)
+			setChart()
+			break
+		case "1":
+			// Check if BPM has changed.
+			if (BPM != Int(array[1])!) {
+				let time = (Double(array[1])! / 300.0)
+				animateHeartBeat(duration: time, delay: 0.0)
 			}
 			
-			// Update BPM and heartBeatImageView.
-			if (array[1] != "") {
-				if (BPM != Int(array[1])!) {
-					let time = (Double(array[1])! / 300.0)
-					animateHeartBeat(duration: time, delay: 0.0)
-				}
-				
-				BPM = Int(array[1])!
-				BPMView.text = array[1]
-			}
+			// Get BPM and update view.
+			BPM = Int(array[1])!
+			BPMView.text = array[1]
+			updateProgressBar(days: Int(array[1])!, max: 1000)
+			break
+		case "2":
+			// Get temperature and update view.
+			tempArray.append(Int(array[1])!)
 			
-			// Make signalArray maximum size to 60.
-			if signalArray.count == 60 {
-				signalArray.remove(at: 0)
-			}
+			var celsius = (average(temp: tempArray)/1024) * 500
+			var fahrenheit = (celsius * 9)/5 + 32
+			
+			tempCView.text = "\(celsius.rounded())°C"
+			tempFView.text = "\(fahrenheit.rounded())°F"
+			break
+		default:
+			break
 		}
 		
-		print(stringFromData)
+		// Make signalArray maximum size to 90.
+		if signalArray.count == 90 {
+			signalArray.remove(at: 0)
+		}
 	}
 	
 	// Animate heartBeatImageView.
@@ -125,6 +159,20 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
 				self.heartBeatImageView.frame.size.width += 50
 			}
 		}, completion: nil)
+	}
+	
+	// Update Progress bar.
+	func updateProgressBar(days: Int, max: Int) -> Void {
+		var counterDays = Double(days)
+		let maxDays = Double(max)
+		
+		// Limit the bar from passing the container.
+		if (counterDays >= (maxDays - 1.0)) {
+			counterDays = maxDays
+		}
+		
+		let newAngleValue = Int(360 * (counterDays / maxDays))
+		circularBar.animate(toAngle: Double(newAngleValue), duration: 1.0, completion: nil)
 	}
 	
 	func setChart() {
