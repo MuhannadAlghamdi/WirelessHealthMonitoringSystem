@@ -34,10 +34,6 @@ In order to minimize the size of the device, we soldered all components includin
 
 ![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/health_monitor_schematic.png  "Optional title")
 
-Because the pulse sensor is a sensitive finger-type pulse detector; records data by using the amount of infrared light reflected by the blood flow inside of fingers, we designed a convenient finger clip that can be fits over a fingertip very safely as shown in Figure 2. The shape of the finger clip is flexible and capable to hold the sensor very formally, press it closely against the skin, and allow the wire to go out though the case. These features contributed to increase the stability of signal and improve the accuracy of data.
-
-![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/pulse_sensor_3d_clipper.png "Optional title")
-
 ## Algorithms
 ### Temperature Algorithm
 
