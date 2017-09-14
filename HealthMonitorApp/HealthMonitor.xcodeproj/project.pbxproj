@@ -10,10 +10,10 @@
 		2243B8E11ED000F600A7AC2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B8E01ED000F600A7AC2C /* AppDelegate.swift */; };
 		2243B8E31ED000F600A7AC2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B8E21ED000F600A7AC2C /* ViewController.swift */; };
 		2243B8E61ED000F600A7AC2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2243B8E41ED000F600A7AC2C /* Main.storyboard */; };
-		2243B8E81ED000F600A7AC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2243B8E71ED000F600A7AC2C /* Assets.xcassets */; };
 		2243B8EB1ED000F600A7AC2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2243B8E91ED000F600A7AC2C /* LaunchScreen.storyboard */; };
 		2243B8F41ED0025500A7AC2C /* BLETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B8F31ED0025500A7AC2C /* BLETableViewController.swift */; };
 		2243B8F61ED0031900A7AC2C /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B8F51ED0031900A7AC2C /* KDCircularProgress.swift */; };
+		2296C4D81F6AA3EE00A2F965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2296C4D71F6AA3EE00A2F965 /* Assets.xcassets */; };
 		79821CDF2B6A54998D590616 /* Pods_HealthMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3A4E35AC929E0A568E45C /* Pods_HealthMonitor.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,11 +22,11 @@
 		2243B8E01ED000F600A7AC2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2243B8E21ED000F600A7AC2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2243B8E51ED000F600A7AC2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2243B8E71ED000F600A7AC2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2243B8EA1ED000F600A7AC2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2243B8EC1ED000F600A7AC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2243B8F31ED0025500A7AC2C /* BLETableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETableViewController.swift; sourceTree = "<group>"; };
 		2243B8F51ED0031900A7AC2C /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		2296C4D71F6AA3EE00A2F965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		709B0A72D89452BD4307D160 /* Pods-HealthMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthMonitor/Pods-HealthMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		D79D419AAA08B9707E28418E /* Pods-HealthMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthMonitor/Pods-HealthMonitor.release.xcconfig"; sourceTree = "<group>"; };
 		FAF3A4E35AC929E0A568E45C /* Pods_HealthMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,8 +71,8 @@
 				2243B8F31ED0025500A7AC2C /* BLETableViewController.swift */,
 				2243B8E41ED000F600A7AC2C /* Main.storyboard */,
 				2243B8E91ED000F600A7AC2C /* LaunchScreen.storyboard */,
+				2296C4D71F6AA3EE00A2F965 /* Assets.xcassets */,
 				2243B8EC1ED000F600A7AC2C /* Info.plist */,
-				2243B8E71ED000F600A7AC2C /* Assets.xcassets */,
 			);
 			path = HealthMonitor;
 			sourceTree = "<group>";
@@ -158,7 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2243B8EB1ED000F600A7AC2C /* LaunchScreen.storyboard in Resources */,
-				2243B8E81ED000F600A7AC2C /* Assets.xcassets in Resources */,
+				2296C4D81F6AA3EE00A2F965 /* Assets.xcassets in Resources */,
 				2243B8E61ED000F600A7AC2C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
