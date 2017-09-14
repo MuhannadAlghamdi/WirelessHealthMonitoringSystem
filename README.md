@@ -5,36 +5,38 @@ This project can used to sensd body temperature and heart rate of a patient for 
 ## Project Devices
 ### Arduino nano
 
-![Alt text](/Users/muhannadalghamdi/Desktop/WirelessHealthMonitoringSystem/Pictures/arduino_nano.png "Optional title")
-The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package. It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one. This component is selected because its small and it can work with HM-10 BLE module.
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/arduino_nano.png "Optional title")
+
+The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package. It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one. This component is selected because its small and it can work with HM-10 BLE module.
 
 ### HM-10 BLE module
 
 
-![Alt text](/Users/muhannadalghamdi/Desktop/WirelessHealthMonitoringSystem/Pictures/hm10_ble.png "Optional title")
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/hm10_ble.png "Optional title")
 
 The HM-10 is a readily available Bluetooth 4.0 module based on the Texas Instruments CC2540 and CC2541 Bluetooth low energy (BLE) System on Chip (SoC). This bluetooth module is cost low energy and it be suitable for IOS device like iphone or ipad. The pin on HM-10 for data translation are TX and RX, they are translate signal to remote port and receive signal from remote port. Those two pins can be connected with RX and TX on arduino board or other pin on arduino board.
 
 ### SEN-11574 Pulse Sensor
 
-![Alt text](/Users/muhannadalghamdi/Desktop/WirelessHealthMonitoringSystem/Pictures/pulse_sensor.png "Optional title")
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/pulse_sensor.png "Optional title")
 
 The Pulse Sensor Amped is a plug-and-play heart-rate sensor for Arduino. It can be used by students, artists, athletes, makers, and game & mobile developers who want to easily incorporate live heart-rate data into their projects.It essentially combines a simple optical heart rate sensor with amplification and noise cancellation circuitry making it fast and easy to get reliable pulse readings. Also, it sips power with just 4mA current draw at 5V so its great for mobile applications. This component is selected because its the only sensor to easy to find and its reading is accurately. For using this heartbeat sensor just connect its S pin to any arduino analog pin and also connect ground and 5v to arduino.
 
 ### LM35 Temperature Sensor
 
-![Alt text](/Users/muhannadalghamdi/Desktop/WirelessHealthMonitoringSystem/Pictures/lm35.png "Optional title")
-The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package. It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one. This component is selected because its small and it can work with HM-10 BLE module.
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/lm35.png "Optional title")
+
+The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package. It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one. This component is selected because its small and it can work with HM-10 BLE module.
 
 ## Device Design
 
 In order to minimize the size of the device, we soldered all components including pulse sensor, temperature sensor, Bluetooth chip, and battery case onto the Arduino Nano then covered by a portable strap that can be attached to a patients wrist. This way will allow collected data to be sent to the iOS application continuously.
 
-![Alt text](/Users/muhannadalghamdi/Desktop/WirelessHealthMonitoringSystem/Pictures/health_monitor_schematic.png  "Optional title")
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/health_monitor_schematic.png  "Optional title")
 
 Because the pulse sensor is a sensitive finger-type pulse detector; records data by using the amount of infrared light reflected by the blood flow inside of fingers, we designed a convenient finger clip that can be fits over a fingertip very safely as shown in Figure 2. The shape of the finger clip is flexible and capable to hold the sensor very formally, press it closely against the skin, and allow the wire to go out though the case. These features contributed to increase the stability of signal and improve the accuracy of data.
 
-![Alt text](/Users/muhannadalghamdi/Desktop/WirelessHealthMonitoringSystem/Pictures/pulse_sensor_3d_clipper.png "Optional title")
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/pulse_sensor_3d_clipper.png "Optional title")
 
 ## Algorithms
 ### Temperature Algorithm
@@ -48,7 +50,8 @@ int tempPin = 1;
 Before we can get a Celsius reading, we must read the analog output voltage. Once we have the raw voltage, we then divide by 1024.0 times 5000 because there is 5000 millvolts in 5 volts.
 
 ```arduino
-int rawVoltage = analogRead(tempPin);float milliVolts = (rawVoltage / 1024.0) ∗ 5000;
+int rawVoltage = analogRead(tempPin);
+float milliVolts = (rawVoltage / 1024.0) ∗ 5000;
 float tempC = milliVolts / 10;
 ```
 ### Heart Beat Algorithm
@@ -62,7 +65,8 @@ int pulsePin = 0;
 it constantly reads the sensor value and looks for the heart beat every 2 mS.
 
 ```arduino
-Signal = analogRead(pulsePin); sampleCounter += 2;int N = sampleCounter − lastBeatTime;
+Signal = analogRead(pulsePin); sampleCounter += 2;
+int N = sampleCounter − lastBeatTime;
 ```
 
 First we read the Pulse Sensor then keep track of the time in mS with sampleCounter. Next, we monitor the time since the last beat to avoid noise.
