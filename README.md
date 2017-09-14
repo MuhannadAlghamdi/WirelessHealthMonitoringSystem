@@ -76,34 +76,34 @@ The HM-10 is a low coast Bluetooth module that can easily used with the Arduino 
 
 ```arduino
 if (bluetoothSerial.available()) {
-	char bluetoothData = bluetoothSerial.read();
+    char bluetoothData = bluetoothSerial.read();
 
-	if (bluetoothData == '0') {
-		// Convert Signal to char array.
-		String sep = "0,";
-		String str = sep + Signal;
-		int strlen = str.length() + 1;
-		char SignalArray[strlen];
-		str.toCharArray(SignalArray, strlen);
-		bluetoothSerial.write(SignalArray);
-	} else if (bluetoothData == '1') {
-		// Convert BPM to char array.
-		String sep = "1,";
-		String str = sep + BPM;
-		int strlen = str.length() + 1;
-		char BPMArray[strlen];
-		str.toCharArray(BPMArray, strlen);
-		bluetoothSerial.write(BPMArray);
-	} else if (bluetoothData == '2') {
-		// Convert Temp to char array.
-		Temp = analogRead(tempPin);
-		String sep = "2,";
-		String str = sep + Temp;
-		int strlen = str.length() + 1;
-		char TempArray[strlen];
-		str.toCharArray(TempArray, strlen);
-		bluetoothSerial.write(TempArray);
-	}
+    if (bluetoothData == '0') {
+        // Convert Signal to char array.
+        String sep = "0,";
+        String str = sep + Signal;
+        int strlen = str.length() + 1;
+        char SignalArray[strlen];
+        str.toCharArray(SignalArray, strlen);
+        bluetoothSerial.write(SignalArray);
+    } else if (bluetoothData == '1') {
+        // Convert BPM to char array.
+        String sep = "1,";
+        String str = sep + BPM;
+        int strlen = str.length() + 1;
+        char BPMArray[strlen];
+        str.toCharArray(BPMArray, strlen);
+        bluetoothSerial.write(BPMArray);
+    } else if (bluetoothData == '2') {
+        // Convert Temp to char array.
+        Temp = analogRead(tempPin);
+        String sep = "2,";
+        String str = sep + Temp;
+        int strlen = str.length() + 1;
+        char TempArray[strlen];
+        str.toCharArray(TempArray, strlen);
+        bluetoothSerial.write(TempArray);
+    }
 }
 ```
 
@@ -120,46 +120,46 @@ Now, to grab any data coming from the HM-10 and print it to the chart and labels
 ```swift
 // Get data values when they are updated.
 func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-	let stringFromData = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue)!
-	var array = stringFromData.components(separatedBy: ",")
-	print(stringFromData)
-	
-	switch array[0] {
-	case "0":
-		// Get singal and update chart.
-		signalArray.append(Int(array[1])!)
-		setChart()
-		break
-	case "1":
-		// Check if BPM has changed.
-		if (BPM != Int(array[1])!) {
-			let time = (Double(array[1])! / 300.0)
-			animateHeartBeat(duration: time, delay: 0.0)
-		}
-		
-		// Get BPM and update view.
-		BPM = Int(array[1])!
-		BPMView.text = array[1]
-		updateProgressBar(days: Int(array[1])!, max: 1000)
-		break
-	case "2":
-		// Get temperature and update view.
-		tempArray.append(Int(array[1])!)
-		
-		var celsius = (average(temp: tempArray)/1024) * 500
-		var fahrenheit = (celsius * 9)/5 + 32
-		
-		tempCView.text = "\(celsius.rounded())°C"
-		tempFView.text = "\(fahrenheit.rounded())°F"
-		break
-	default:
-		break
-	}
-	
-	// Make signalArray maximum size to 90.
-	if signalArray.count == 90 {
-		signalArray.remove(at: 0)
-	}
+    let stringFromData = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue)!
+    var array = stringFromData.components(separatedBy: ",")
+    print(stringFromData)
+    
+    switch array[0] {
+    case "0":
+        // Get singal and update chart.
+        signalArray.append(Int(array[1])!)
+        setChart()
+        break
+    case "1":
+        // Check if BPM has changed.
+        if (BPM != Int(array[1])!) {
+            let time = (Double(array[1])! / 300.0)
+            animateHeartBeat(duration: time, delay: 0.0)
+        }
+        
+        // Get BPM and update view.
+        BPM = Int(array[1])!
+        BPMView.text = array[1]
+        updateProgressBar(days: Int(array[1])!, max: 1000)
+        break
+    case "2":
+        // Get temperature and update view.
+        tempArray.append(Int(array[1])!)
+        
+        var celsius = (average(temp: tempArray)/1024) * 500
+        var fahrenheit = (celsius * 9)/5 + 32
+        
+        tempCView.text = "\(celsius.rounded())°C"
+        tempFView.text = "\(fahrenheit.rounded())°F"
+        break
+    default:
+        break
+    }
+    
+    // Make signalArray maximum size to 90.
+    if signalArray.count == 90 {
+        signalArray.remove(at: 0)
+    }
 }
 ```
 
