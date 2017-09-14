@@ -149,4 +149,13 @@ func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CB
 	}
 ```
 
+## Calculation of BPM and Temperature
+
+Heart rate is measured by systolic heart rate which measures the pressure in our blood vessels when your heart beats and the diastolic heart rate which measures the pressure in your blood vessels when your heart rests between beats. Calculating these values and comparing it with the body temperature, we would be able to make a close estimation of human health condition as shown in the table below.
+
+| Normal  | Abnormal | High |
+| ------------- | ------------- | ------------- |
+| The average normal temperature is 98.6F (37C).  | Hypothermia: 95F (35C) or below. | High fever: 103F (39.5C) or above.  |
+| Normal resting heart rate is between 60 and 100 BPM. | If heart rate is closer to 60 bpm or lower. | If heart rate is closer to 150 bpm or higher. |
+
 
