@@ -2,30 +2,30 @@
 
 This project can be used to measure body temperature and heart rate of a patient for monitoring physiological conditions using wireless sensor network (WSN). The system is composed of two phases: health monitoring device embedded on a patient's body and iOS mobile app for doctors to view the real-time visualization data of patient.
 
-<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/animated_gif.gif" width="320">
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/animated_gif.gif" width="320">
 
 ## Project Devices
 ### Arduino nano
 
-<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/arduino_nano.png" width="320">
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/arduino_nano.png" width="320">
 
 The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package. It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one. This component is selected because its small and it can work with HM-10 BLE module.
 
 ### HM-10 BLE module
 
-<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/hm10_ble.png" width="320">
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/hm10_ble.png" width="320">
 
 The HM-10 is a readily available Bluetooth 4.0 module based on the Texas Instruments CC2540 and CC2541 Bluetooth low energy (BLE) System on Chip (SoC). This bluetooth module is cost low energy and it be suitable for iOS device like iphone or ipad. The pin on HM-10 for data translation are TX and RX, they are translate signal to remote port and receive signal from remote port. Those two pins can be connected with RX and TX on arduino board or other pin on arduino board.
 
 ### SEN-11574 Pulse Sensor
 
-<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/pulse_sensor.png" width="320">
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/pulse_sensor.png" width="320">
 
 The Pulse Sensor Amped is a plug-and-play heart-rate sensor for Arduino. It can be used by students, artists, athletes, makers, and game & mobile developers who want to easily incorporate live heart-rate data into their projects.It essentially combines a simple optical heart rate sensor with amplification and noise cancellation circuitry making it fast and easy to get reliable pulse readings. Also, it sips power with just 4mA current draw at 5V so its great for mobile applications. This component is selected because its the only sensor to easy to find and its reading is accurately. For using this heartbeat sensor just connect its S pin to any arduino analog pin and also connect ground and 5v to arduino.
 
 ### LM35 Temperature Sensor
 
-<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/lm35.png" width="320">
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/lm35.png" width="320">
 
 LM35 is a precision IC temperature sensor with its output proportional to the temperature (in oC).
 The sensor circuitry is sealed and therefore it is not subjected to oxidation and other processes.
@@ -39,7 +39,7 @@ connect output pin to any arduino analog pin and also connect Gnd and 5V to ardu
 
 In order to minimize the size of the device, we soldered all components including pulse sensor, temperature sensor, Bluetooth chip, and battery case onto the Arduino Nano then covered by a portable strap that can be attached to a patients wrist. This way will allow collected data to be sent to the iOS application continuously.
 
-![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/health_monitor_schematic.png  "Optional title")
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/health_monitor_schematic.png  "Optional title")
 
 ## Algorithms
 ### Temperature Algorithm
@@ -174,10 +174,10 @@ Heart rate is measured by systolic heart rate which measures the pressure in our
 
 After verifying that all signals are measured and calculated in Arduino, as shown below, we were able to send these data to the App and display it using multiple different style to represent data.
 
-![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/signal1.png  "Optional title")
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/signal1.png  "Optional title")
 
 The circular chart represents the overall health to the patent. The first third portion of the circuit indicates the health is normal but when it passes the half of the circle, it will alarm the user that the health condition is abnormal.
 
-<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/circular_bar.png" width="320">
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/circular_bar.png" width="320">
 
 The heart is dynamically change its speed of beating based of the BPM. The chart shows a life signal visualization of heart rate which is beneficial to the user to see the timeline of activities. Finally, body temperature and BPM are displayed in numerical values at the bottom of the App.
