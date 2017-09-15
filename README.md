@@ -2,8 +2,7 @@
 
 ![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/animated_gif.gif "Optional title")
 
-This project can used to sensd body temperature and heart rate of a patient for monitoring physiological conditions using wireless sensor network (WSN) to send data to mobile app. The system is composed of Arduino microcontrollers (placed in the patient), LM35 sensor (used for the sense body temperature) and heart beat sensor (used for sensing heart rate), ZigBee, smartphones and softwares such as LabView and Xcode.
-
+This project can be used to measure body temperature and heart rate of a patient for monitoring physiological conditions using wireless sensor network (WSN). The system is composed of two phases: health monitoring device embedded on a patient's body and iOS mobile app for doctors to evaluate current condition of patient.
 
 ## Project Devices
 ### Arduino nano
