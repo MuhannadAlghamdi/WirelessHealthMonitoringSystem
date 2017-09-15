@@ -178,4 +178,6 @@ After verifying that all signals are measured and calculated in Arduino, as show
 
 The circular chart represents the overall health to the patent. The first third portion of the circuit indicates the health is normal but when it passes the half of the circle, it will alarm the user that the health condition is abnormal.
 
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/circular_bar.png" width="320">
+
 The heart is dynamically change its speed of beating based of the BPM. The chart shows a life signal visualization of heart rate which is beneficial to the user to see the timeline of activities. Finally, body temperature and BPM are displayed in numerical values at the bottom of the App.
