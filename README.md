@@ -28,7 +28,13 @@ The Pulse Sensor Amped is a plug-and-play heart-rate sensor for Arduino. It can 
 
 ![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/lm35.png "Optional title")
 
-LM35 is a precision IC temperature sensor with its output proportional to the temperature (in oC).The sensor circuitry is sealed and therefore it is not subjected to oxidation and other processes.With LM35, temperature can be measured more accurately than with a thermistor. It also possesslow self heating and does not cause more than 0.1 oC temperature rise in still air. The operatingtemperature range is from -55C to 150C. The output voltage varies by 10 mV in response to everyC rise/fall in ambient temperature, i.e., its scale factor is 0.01V/ C. For using this sensor justconnect output pin to any arduino analog pin and also connect Gnd and 5V to arduino.
+LM35 is a precision IC temperature sensor with its output proportional to the temperature (in oC).
+The sensor circuitry is sealed and therefore it is not subjected to oxidation and other processes.
+With LM35, temperature can be measured more accurately than with a thermistor. It also possess
+low self heating and does not cause more than 0.1 oC temperature rise in still air. The operating
+temperature range is from -55C to 150C. The output voltage varies by 10 mV in response to every
+C rise/fall in ambient temperature, i.e., its scale factor is 0.01V/ C. For using this sensor just
+connect output pin to any arduino analog pin and also connect Gnd and 5V to arduino.
 
 ## Device Design
 
@@ -165,4 +171,12 @@ Heart rate is measured by systolic heart rate which measures the pressure in our
 | The average normal temperature is 98.6F (37C).  | Hypothermia: 95F (35C) or below. | High fever: 103F (39.5C) or above.  |
 | Normal resting heart rate is between 60 and 100 BPM. | If heart rate is closer to 60 bpm or lower. | If heart rate is closer to 150 bpm or higher. |
 
+## Practicality
 
+After verifying that all signals are measured and calculated in Arduino, as shown below, we were able to send these data to the App and display it using multiple different style to represent data.
+
+![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/signal1.png  "Optional title")
+
+The circular chart represents the overall health to the patent. The first third portion of the circuit indicates the health is normal but when it passes the half of the circle, it will alarm the user that the health condition is abnormal.
+
+The heart is dynamically change its speed of beating based of the BPM. The chart shows a life signal visualization of heart rate which is beneficial to the user to see the timeline of activities. Finally, body temperature and BPM are displayed in numerical values at the bottom of the App.
