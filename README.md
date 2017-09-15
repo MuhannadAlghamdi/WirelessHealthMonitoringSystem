@@ -16,7 +16,7 @@ The Arduino Nano is a small, complete, and breadboard-friendly board based on th
 
 ![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/hm10_ble.png "Optional title")
 
-The HM-10 is a readily available Bluetooth 4.0 module based on the Texas Instruments CC2540 and CC2541 Bluetooth low energy (BLE) System on Chip (SoC). This bluetooth module is cost low energy and it be suitable for IOS device like iphone or ipad. The pin on HM-10 for data translation are TX and RX, they are translate signal to remote port and receive signal from remote port. Those two pins can be connected with RX and TX on arduino board or other pin on arduino board.
+The HM-10 is a readily available Bluetooth 4.0 module based on the Texas Instruments CC2540 and CC2541 Bluetooth low energy (BLE) System on Chip (SoC). This bluetooth module is cost low energy and it be suitable for iOS device like iphone or ipad. The pin on HM-10 for data translation are TX and RX, they are translate signal to remote port and receive signal from remote port. Those two pins can be connected with RX and TX on arduino board or other pin on arduino board.
 
 ### SEN-11574 Pulse Sensor
 
@@ -28,7 +28,7 @@ The Pulse Sensor Amped is a plug-and-play heart-rate sensor for Arduino. It can 
 
 ![Alt text](https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/PreUpdate/Images/lm35.png "Optional title")
 
-The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package. It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one. This component is selected because its small and it can work with HM-10 BLE module.
+LM35 is a precision IC temperature sensor with its output proportional to the temperature (in oC).The sensor circuitry is sealed and therefore it is not subjected to oxidation and other processes.With LM35, temperature can be measured more accurately than with a thermistor. It also possesslow self heating and does not cause more than 0.1 oC temperature rise in still air. The operatingtemperature range is from -55C to 150C. The output voltage varies by 10 mV in response to everyC rise/fall in ambient temperature, i.e., its scale factor is 0.01V/ C. For using this sensor justconnect output pin to any arduino analog pin and also connect Gnd and 5V to arduino.
 
 ## Device Design
 
