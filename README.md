@@ -171,7 +171,7 @@ Heart rate is measured by systolic heart rate which measures the pressure in our
 | The average normal temperature is 98.6F (37C).  | Hypothermia: 95F (35C) or below. | High fever: 103F (39.5C) or above.  |
 | Normal resting heart rate is between 60 and 100 BPM. | If heart rate is closer to 60 bpm or lower. | If heart rate is closer to 150 bpm or higher. |
 
-## Practicality
+## Application
 
 After verifying that all signals are measured and calculated in Arduino, as shown below, we were able to send these data to the App and display it using multiple different style to represent data.
 
