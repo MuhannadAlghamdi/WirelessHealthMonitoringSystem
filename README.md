@@ -1,4 +1,4 @@
-# Wireless Health Monitoring System
+<img src="https://github.com/MhAlghamdi/WirelessHealthMonitoringSystem/blob/master/Images/health_monitoring_system_intro.png">
 
 This project can be used to measure body temperature and heart rate of a patient for monitoring physiological conditions using wireless sensor network (WSN). The system is composed of two phases: health monitoring device embedded on a patient's body and iOS mobile app for doctors to view the real-time visualization data of patient.
 
